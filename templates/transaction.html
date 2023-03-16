@@ -1,1 +1,22 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction</title>
+</head>
+<body>
+    <h1>Transaction</h1>
+    <form method="POST" action="/send_transaction">
+        <label for="recipient_address">Recipient Address:</label><br>
+        <input type="text" id="recipient_address" name="recipient_address"><br><br>
+        <label for="amount">Amount:</label><br>
+        <input type="number" id="amount" name="amount"><br><br>
+        <label for="sender_address">Sender Address:</label><br>
+        <input type="text" id="sender_address" name="sender_address"><br><br>
+        <input type="submit" value="Send">
+    </form>
+    {% if hash %}
+        <h2>Sent {{ amount }} from {{ sender_address }}  to {{ recipient_address }} successfully </h2>
+    {% endif %}
+</body>
+</html>
