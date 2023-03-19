@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Registration</title>
+</head>
+<body>
+    <h1>Account Information</h1>
+    <p>Address: </p>
+    <input readonly="True" value={{address}}/>
+    <p>Private key: (*Need to backup*)</p>
+    <input readonly="True" value={{private_key}}/>
+    <div></div>
+    <button onclick="window.location.href='{{ url_for( 'account') }}';">OK</button>
+</body>
+</html>

@@ -5,6 +5,11 @@
     <title>Transaction</title>
 </head>
 <body>
+    <nav>
+        <ul>
+          <li><a href="/account">Back to Wallet</a></li>
+        </ul>
+      </nav>
     <h1>Transaction</h1>
     <form method="POST" action="/send_transaction">
         <label for="recipient_address">Recipient Address:</label><br>
@@ -12,7 +17,7 @@
         <label for="amount">Amount:</label><br>
         <input type="number" id="amount" name="amount"><br><br>
         <label for="sender_address">Sender Address:</label><br>
-        <input type="text" id="sender_address" name="sender_address"><br><br>
+        <input type="text" id="sender_address" name="sender_address" readonly="true", value={{sender_address}}><br><br>
         <input type="submit" value="Send">
     </form>
     {% if hash %}
