@@ -4,11 +4,20 @@
     <title>Simple Wallet dApp</title>
   </head>
   <body>
+    <h1>Welcome to Simple Wallet dApp</h1>
+    {% if  account_address != "" %}
+      <button onclick="window.location.href='{{ url_for( 'account') }}';">Back to Wallet</button>
+    {%endif%}
+      <br \>
+    <button onclick="window.location.href='{{ url_for( 'register') }}';">Create Account</button>
+    <button onclick="window.location.href='{{ url_for( 'login') }}';">Restore Account</button>
     <nav>
       <ul>
-        <li><a href="/balance">Show Balance</a></li>
+        <!-- <li><a href="/balance">Show Balance</a></li>
         <li><a href="/transaction">Transactions</a></li>
         <li><a href="/account">View Account Information</a></li>
+        <li><a href="/register">Create Account</a></li> -->
+        <li><a href="/about">About</a></li>
       </ul>
     </nav>
     <main>
