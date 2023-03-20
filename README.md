@@ -31,7 +31,7 @@ Contains information regarding user wallet such as address, private key, balance
 ## File Contents
   * accounts/account.py - Implements functionality to generate wallet, address & private key and other security related algorithm or function
   * transactions/transaction.py - ???
-  * app.py - 
+  * app.py - Contains all the routes for app
   
 ## Demo
  * Video Link: 
