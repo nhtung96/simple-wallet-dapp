@@ -13,7 +13,7 @@ This app allows to manage user accounts and blockchain addresses, handle transac
 ## Description
 
 ### Wallet
-Contains information regarding user wallet such as address, private key
+Contains information regarding user wallet such as address, private key, balance, transaction history
   * Create Wallet:
   
     `localhost:5000/register`
