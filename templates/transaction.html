@@ -17,7 +17,9 @@
         <label for="amount">Amount:</label><br>
         <input type="number" id="amount" name="amount"><br><br>
         <label for="sender_address">Sender Address:</label><br>
-        <input type="text" id="sender_address" name="sender_address" readonly="true", value={{sender_address}}><br><br>
+        <input type="text" id="sender_address" name="sender_address", value={{sender_address}}><br><br>
+        <label for="private_key">Input Sender Private Key as Hex to Sign:</label><br>
+        <input type="hex" id="private_key" name="private_key"><br></br>
         <input type="submit" value="Send">
     </form>
     {% if hash %}
