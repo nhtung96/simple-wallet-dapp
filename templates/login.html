@@ -1,18 +1,96 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Account Login/Restoration</title>
+    <!-- <link href="login.css" rel="stylesheet" type="text/css" media="all"> -->
+    <style>
+       h1.login {
+        color:blue;
+        /* margin-left: 46%; */
+        margin-top: 10%;
+        font-size: x-large;
+        text-align:center;
+      }
+
+      a.Home {
+        font-size:x-large;
+        text-align:center;
+        margin-left: 47%;
+        color: blue;
+      }
+
+      form {
+        /* margin-left: 42%; */
+        text-align:center;
+      }
+
+      div.footer {
+        /* margin-left: 45%; */
+        margin-top: 10%;
+        text-align:center;
+      }
+
+      div.header{
+        margin-top: 10%
+      }
+
+      input.button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top:1%;
+        margin-left: 1%;
+      }
+
+      input {
+        font-size: large;
+      }
+
+      div.register {
+        text-align: center;
+        margin-top:1%;
+      }
+
+    </style>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
-<body>
-    <h1>Account Information</h1>
-    <form method="POST" action="/restore_account">
-        <label for="recipient_address">Private Key:</label><br>
-        <input type="text" id="private_key" name="private_key" placeholder="Input Private Key"/><br></br>
-        <input type="submit" value="Restore">
-    </form>
+    <body>
+      <h1 style="text-align:center; color:brown">Simple Wallet</h1>
+    	<div class="box">
+        <a class="Home" href="/"> <i class='fas fa-arrow-alt-circle-left'></i>Home</a>
+  			<h1 class ="login"></h1>
+  			<form action="/login" method="post">
+    			<input type="text" name="username" id="username" placeholder="Username" required/>
+    			<br>
+    			<input type="password" name="password" id="password" placeholder="Password" required/>
+    			<br>
+    			<input type="submit" class="button" value="Log In"/>
+  			</form>
+        <div class="register" > 
+          <a style="color:#4CAF50;" href="/register">Register new account</a>
+        </div>
+		</div>
+
+    <div class="footer">
+      <a href="/about">About</a>
+    </div>
     
-    {% if error %}
-    <h2>Restore Failed: {{error}} => Input private_key again!</h2>
-    {% endif %}
+    {%if msg%}
+    <div class="msg" style="margin-left:20%">
+        {{msg}}
+      <!-- <h2>Registered Users List</h2>
+      <table style="width:100%;">
+        {%for user in users%}
+          <tr>
+            <td>{{user[0]}}</td>
+          </tr>   
+        {%endfor%}
+      </table> -->
+    </div>
+    {%endif%}
 </body>
 </html>

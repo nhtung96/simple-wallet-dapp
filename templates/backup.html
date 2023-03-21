@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <link href="static/main.css" rel="stylesheet" type="text/css" media="all">
+</head>
+    <body>
+      <h1 style="text-align:center;">Simple Wallet Home</h1>
+    	<div class="box">
+            <a href="/account">Back</a>
+  			<h1>Backup Wallet</h1>
+  			<form action="/backup" method="post">
+    			{%if private_key%}
+                    <div>Your private key: </div>
+                    <label>{{private_key}}</label>
+                {%else%}
+                    <label>Please input password of wallet to show private key</label>
+                {%endif%}
+                <div></div>
+    			<br>
+    			<input type="password" name="password" id="password" placeholder="Password" required/>
+    			<br>
+    			<input type="submit" class="button" value="OK"/>
+  			</form>
+		</div>
+
+    <div class="footer">
+      <a href="/about">About</a>
+    </div>
+    
+    {%if msg%}
+    <div class="msg" style="margin-left:20%">
+        {{msg}}
+    </div>
+    {%endif%}
+</body>
+</html>

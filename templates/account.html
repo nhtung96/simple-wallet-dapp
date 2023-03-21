@@ -1,31 +1,106 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Account Information</title>
-</head>
+  <head>
+    <title>Simple Wallet dApp</title>
+    <style>
 
-<body>
-    <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-        </ul>
-      </nav>
-    <h1>Account Information</h1>
-    <p>Address: {{ address }}</p>
-    <p>Ballance: {{ balance }}</p>
-    <button onclick= "window.location.href='{{ url_for( 'transaction' ) }}';"> Send ETH </button>
-    <p>Transaction Information</p>
-    <!-- <h1 id="transacions">No Transctions</h1>
-    <script>
-        // ele = ""
-        transactions = document.transactions
-        // let nb_trans = transactions.length
-        // for (let i = 0; i < nb_trans; i++){
-        //     ele = ele + transactions[i]
-        // }
-        document.getElementById("transactions").innerHTML = transactions
+      button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top:1%;
+        margin-left: 1%;
+      }
 
-    </script> -->
-    {{transactions}}
-</body>
+      div.Button{
+        text-align:center;
+        margin-top:50%;
+      }
+
+      a.logout {
+       font-size:x-large;
+       text-align:center;
+       margin-left: 1%;
+       color: blue;
+       margin-top: 2%;
+      }
+
+      div.header{
+        margin-top: 10%
+      }
+
+      h1 {
+        margin-bottom:0%;
+      }
+
+      h2 {
+        margin-top: 1%;
+        margin-bottom: 1%;
+      }
+
+      div.footer {
+       /* margin-left: 45%; */
+       margin-top: 3%;
+       text-align:center;
+     }
+
+     div.Form {
+      background-color: gainsboro;
+      height: 300pt;
+      width: 500pt;
+      margin-top: 1%;
+      margin-left: 30%;
+      padding:10pt
+
+     }
+
+     label {
+      color:black;
+      text-align: center;
+      font-size: larger;
+      margin-left: 45%;
+      margin-top:10%
+     }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align:center; color:brown">Simple Wallet</h1>
+    <h2 style="text-align:center; color:darkblue">Welcome {{username}} | <a class="logout" href="/">Logout</a></h2>
+    
+    <br />
+    <b><label>List of Wallet Accounts</label></b>
+    <div class="Form">
+      {%if list_wallet|length == 0%}
+        <a>No wallet account</a>
+      {%else%}
+        {%for wallet in list_wallet%}
+          <form action="/restore_by_keystore" method="post">
+            <input type= "hidden" id="account_name" name="account_name" value={{wallet.account_name}}></input>
+            <label>{{wallet.account_name}} - {{wallet.address[:4]}}...{{wallet.address[-4:]}}</label>
+            <input type="submit" name="action" class="button" value="Choose"/>
+            <input type="submit" name="action" class="button" value="Remove"/>
+            <input type="submit" name="action" class="button" value="Show Key"/>
+            <br />
+          </form>
+        {%endfor%}
+      {%endif%}
+    </div>
+    <div class="Button">
+    <button onclick="window.location.href='{{ url_for( 'create') }}';">Create Wallet</button>
+    <button onclick="window.location.href='{{ url_for( 'restore') }}';">Restore Wallet</button>
+    </div>
+    <div class="footer">
+      <a href="/about">About</a>
+    </div>
+    <main>
+    </main>
+    <footer>
+      <!-- Your footer content goes here -->
+    </footer>
+  </body>
 </html>

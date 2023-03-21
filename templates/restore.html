@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Login/Restoration</title>
+</head>
+<body>
+    <h1>Account Information</h1>
+    <form method="POST" action="/restore_wallet">
+        <label for="recipient_address">Private Key:</label><br>
+        <input type="text" id="private_key" name="private_key" placeholder="Input Private Key"/><br></br>
+        <p>Account Name:</p>
+        <input type='text' name="account_name"  id="account_name" placeholder="Input account name" required/>
+        <div> </div>
+        <input type="submit" value="Restore">
+    </form>
+    
+    {% if error %}
+    <h2>Restore Failed: {{error}}</h2>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Registration</title>
+</head>
+<body>
+    <h1>Account Information</h1>
+    <form action="/create_wallet" method="post">
+        <p>Address: </p>
+        <input type='text'  readonly="True" value={{address}}/>
+        <p>Private key: (*Need to backup*)</p>
+        <input type='text'  readonly="True" value={{private_key}}/>
+        <p>Account Name:</p>
+        <input type='text' name="account_name"  id="account_name" placeholder="Input account name" required/>
+        <div></div>
+        <input type="submit" class="button" value="OK"/>
+    </form>
+    {%if msg%}
+    <div class="msg" style="margin-left:20%">
+        {{msg}}
+    </div>
+    {%endif%}
+</body>
+</html>

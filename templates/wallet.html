@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Information</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+          <li><a href="/account">Choose other account</a></li>
+          <li><a href="/">logout</a></li>
+        </ul>
+      </nav>
+    <h1>Account Information</h1>
+    <p>Address: {{ address }}</p>
+    <p>Ballance: {{ "%.2f" % balance }} ETH</p>
+    <button onclick= "window.location.href='{{ url_for( 'transaction' ) }}';"> Send ETH </button>
+    <p>Transaction Information</p>
+    <!-- <h1 id="transacions">No Transctions</h1>
+    <script>
+        // ele = ""
+        transactions = document.transactions
+        // let nb_trans = transactions.length
+        // for (let i = 0; i < nb_trans; i++){
+        //     ele = ele + transactions[i]
+        // }
+        document.getElementById("transactions").innerHTML = transactions
+
+    </script> -->
+    {%for transaction in transactions%}
+        <ul>
+            Transaction {{transaction.no}}
+            <li>Transcation Hash: {{transaction._hash}}</li>
+            <li>From: {{transaction._from}}</li>
+            <li>To: {{transaction._to}}</li>
+            <li>Amount: {{transaction._amount}} ETH</li>
+        </ul>
+    {%endfor%}
+</body>
+</html>

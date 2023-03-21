@@ -1,23 +1,56 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- <link href="index.css" rel="stylesheet" type="text/css" media="all"> -->
+    <style>
+      h1 {
+        color:brown;
+        margin-left: 30%;
+        margin-top: 2%;
+      }
+
+      button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top:1%;
+        margin-left: 1%;
+      }
+
+      div{
+        margin-left: 35%;
+        margin-top:4%;
+      }
+
+      a {
+        margin-left: 40%;
+        margin-top: 30%;
+      }
+
+      div.header{
+        margin-top: 10%
+      }
+    </style>
     <title>Simple Wallet dApp</title>
   </head>
   <body>
+    <div class="header"></div>
     <h1>Welcome to Simple Wallet dApp</h1>
-    {% if  account_address != "" %}
-      <button onclick="window.location.href='{{ url_for( 'account') }}';">Back to Wallet</button>
-    {%endif%}
       <br \>
-    <button onclick="window.location.href='{{ url_for( 'register') }}';">Create Account</button>
-    <button onclick="window.location.href='{{ url_for( 'login') }}';">Restore Account</button>
+    <div>
+      <button onclick="window.location.href='{{ url_for( 'login') }}';">Login</button>
+      <button onclick="window.location.href='{{ url_for( 'register') }}';">Sign Up</button>
+    </div>
+    <br \>
+    <br \>
     <nav>
       <ul>
-        <!-- <li><a href="/balance">Show Balance</a></li>
-        <li><a href="/transaction">Transactions</a></li>
-        <li><a href="/account">View Account Information</a></li>
-        <li><a href="/register">Create Account</a></li> -->
-        <li><a href="/about">About</a></li>
+        <a href="/about">About</a>
       </ul>
     </nav>
     <main>

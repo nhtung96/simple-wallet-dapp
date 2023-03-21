@@ -1,15 +1,94 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Account Registration</title>
+    <!-- <link href="static/main.css" rel="stylesheet" type="text/css" media="all"> -->
+    <style>
+      h1.login {
+       color:blue;
+       /* margin-left: 46%; */
+       margin-top: 10%;
+       font-size: x-large;
+       text-align:center;
+     }
+
+     a.Home {
+       font-size:x-large;
+       text-align:center;
+       margin-left: 47%;
+       color: blue;
+     }
+
+     form {
+       /* margin-left: 42%; */
+       text-align:center;
+     }
+
+     div.footer {
+       /* margin-left: 45%; */
+       margin-top: 10%;
+       text-align:center;
+     }
+
+     div.header{
+       margin-top: 10%
+     }
+
+     input.button {
+       background-color: #4CAF50; /* Green */
+       border: none;
+       color: white;
+       padding: 15px 32px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       font-size: 16px;
+       margin-top:1%;
+       margin-left: 1%;
+     }
+
+     input {
+       font-size: large;
+     }
+
+     div.register {
+       text-align: center;
+       margin-top:1%;
+     }
+
+   </style>
 </head>
-<body>
-    <h1>Account Information</h1>
-    <p>Address: </p>
-    <input readonly="True" value={{address}}/>
-    <p>Private key: (*Need to backup*)</p>
-    <input readonly="True" value={{private_key}}/>
-    <div></div>
-    <button onclick="window.location.href='{{ url_for( 'account') }}';">OK</button>
+    <body>
+      <h1 style="text-align:center; color:brown">Simple Wallet</h1>
+    	<div class="box">
+            <a class="Home" href="/">Home</a>
+  			<h1 class="login"></h1>
+  			<form action="/register" method="post">
+    			<input type="text" name="username" id="username" placeholder="Username" required/>
+    			<br>
+    			<input type="password" name="password" id="password" placeholder="Password" required/>
+    			<br>
+    			<input type="submit" class="button" value="Sign Up"/>
+  			</form>
+        <div class="register" > 
+          <a style="color:#4CAF50;" href="/login">Log In</a>
+        </div>
+		</div>
+
+    <div class="footer">
+      <a href="/about">About</a>
+    </div>
+    
+    {%if msg%}
+    <div class="msg" style="margin-left:20%">
+        {{msg}}
+      <!-- <h2>Registered Users List</h2>
+      <table style="width:100%;">
+        {%for user in users%}
+          <tr>
+            <td>{{user[0]}}</td>
+          </tr>   
+        {%endfor%}
+      </table> -->
+    </div>
+    {%endif%}
 </body>
 </html>
