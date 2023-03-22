@@ -3,27 +3,105 @@
 <html>
 <head>
     <title>Transaction</title>
+    <style>
+        h1.login {
+         color:blue;
+         /* margin-left: 46%; */
+         margin-top: 10%;
+         font-size: x-large;
+         text-align:center;
+       }
+  
+       a.Home {
+         font-size:large;
+         text-align:center;
+         margin-left: 47%;
+         color: blue;
+       }
+  
+       form {
+         /* margin-left: 42%; */
+         /* text-align:center; */
+       }
+  
+       div.footer {
+         /* margin-left: 45%; */
+         margin-top: 10%;
+         text-align:center;
+       }
+  
+       div.header{
+         margin-top: 10%
+       }
+  
+       input.button {
+         background-color: #4CAF50; /* Green */
+         border: none;
+         color: white;
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin-top:1%;
+         margin-left: 45%;
+       }
+  
+       input {
+         font-size: large;
+       }
+  
+       div.register {
+         text-align: center;
+         margin-top:1%;
+       }
+  
+       a.logout {
+         font-size:x-large;
+         text-align:center;
+         margin-left: 47%;
+         color: blue;
+         margin-top: 2%;
+        }
+  
+      div.output {
+        width: 762px;
+        /* width: fit-content; */
+  
+        background-color: gainsboro;
+        margin-left: 25%;
+        padding: 30px 30px 30px 30px;
+        font-size: x-large;
+        text-align: center;
+        align-items: center;
+      }
+
+      div.label {
+        float:left;
+        margin-left: 400px;
+      }
+  
+     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-          <li><a href="/wallet_info">Back to Wallet</a></li>
-        </ul>
-      </nav>
-    <h1>Transaction</h1>
+    <h1 style="text-align:center;color:brown;">Simple Wallet</h1>
+    <a class="Home" href="/wallet_info">Back</a>
+
+    <h1 class="login">Transaction Information</h1>
     <form method="POST" action="/send_transaction">
-        <label for="recipient_address">Recipient Address:</label><br>
-        <input type="text" id="recipient_address" name="recipient_address"><br><br>
-        <label for="amount">Amount:</label><br>
-        <input type="number" id="amount" name="amount"><br><br>
-        <label for="sender_address">Sender Address:</label><br>
-        <input type="text" id="sender_address" name="sender_address", value={{sender_address}}><br><br>
-        <label for="private_key">Input Sender Private Key as Hex to Sign:</label><br>
-        <input type="hex" id="private_key" name="private_key"><br></br>
-        <input type="submit" value="Send">
+        <div class="label"for="recipient_address">Recipient Address:</div>
+        <input type="text" style="width:450px;margin-left:10px" id="recipient_address" name="recipient_address">
+        <br />
+        <div class="label"for="amount">Amount:</div>
+        <input type="number" style="width:450px;margin-left:74px"  id="amount" name="amount">
+        <br />
+        <div class="label" for="sender_address">Sender Address:</div>
+        <input type="text" style="width:450px;margin-left:27px"  id="sender_address" name="sender_address" readonly="true", value={{sender_address}}>
+        <br />
+        <input type="submit" value="Send" class="button">
     </form>
     {% if hash %}
-        <h2>Sent {{ amount }} from {{ sender_address }}  to {{ recipient_address }} successfully </h2>
+        <h2 style="color:darkblue; text-align: center;">Sent {{ amount }} from {{ sender_address }}  to {{ recipient_address }} successfully </h2>
     {% endif %}
 </body>
 </html>
