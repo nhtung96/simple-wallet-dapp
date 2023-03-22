@@ -5,8 +5,6 @@ from account import wallet
 from user import user_model as dbHandler
 from account import wallet_model as dbWallet
 import json
-
-
 app = Flask(__name__)
 
 # Initialize web3 provider
@@ -108,72 +106,6 @@ def create_wallet():
         return render_template('create.html', address = main_wallet_api.address, private_key = main_wallet_api.private_key, msg=msg)
 
 
-@app.route('/restore_by_keystore', methods=['POST'])
-def restore_by_keystore():
-    account_name = request.form['account_name']
-    # print("account_name", account_name)
-    _wallet = list_wallet.select_account(account_name=account_name)
-    # print(account_name, _wallet.account_name, _wallet.address)
-    result = main_wallet_api.restore_by_keystore(json.loads(_wallet.keystore),\
-                                                 main_account.password, account_name=account_name) 
-    # print(main_wallet_api.address)
-    if request.form['action'] == 'Choose':
-        ## Restore wallet account 
-        if result == "Success":
-            list_wallet.insertWallet(main_account.username, main_wallet_api.address, _wallet.keystore, main_wallet_api.account_name)
-            return redirect("/wallet_info")
-        else:
-            list_wallet.removeWallet(account_name=account_name)
-            return redirect("/account")
-    elif request.form['action'] == 'Remove':
-        list_wallet.removeWallet(account_name=account_name)
-        return redirect("/account")
-    elif request.form['action'] == 'Show Key':
-        return render_template('backup.html')
-
-@app.route('/wallet_info')
-def wallet_info():
-    main_wallet_api.update_wallet()
-    return render_template('wallet.html', address = main_wallet_api.address, \
-                            balance = main_wallet_api.balance, transactions=main_wallet_api.transactions)
-
-@app.route('/restore')
-def restore():
-	return render_template('restore.html')
-
-@app.route('/restore_wallet', methods=['POST'])
-def restore_wallet():
-    private_key = request.form['private_key']
-    account_name = request.form['account_name']
-    result = main_wallet_api.restore_wallet(private_key, account_name)
-    keystore = main_wallet_api.get_keystore(main_account.password)
-    if result == "Success":
-        status, msg = list_wallet.insertWallet(main_account.username, main_wallet_api.address, keystore, main_wallet_api.account_name)
-        if status:
-            return redirect("/wallet_info")
-        else:
-            return render_template('restore.html', error=msg)
-    else:
-        return render_template('restore.html', error=result)
-
-@app.route('/create')
-def create():
-    # Register account
-    main_wallet_api.create_wallet()
-    return render_template('create.html', address = main_wallet_api.address, private_key = main_wallet_api.private_key)
-
-@app.route('/create_wallet', methods=['POST'])
-def create_wallet():
-    # Register account
-    account_name = request.form["account_name"]
-    main_wallet_api.update_account_name(account_name=account_name)
-    keystore = main_wallet_api.get_keystore(main_account.password)
-    status, msg = list_wallet.insertWallet(main_account.username, main_wallet_api.address, keystore, account_name)
-    print("Save DB: ",  main_wallet_api.address)
-    if status:
-        return redirect("/wallet_info")
-    else:
-        return render_template('create.html', address = main_wallet_api.address, private_key = main_wallet_api.private_key, msg=msg)
 
 @app.route('/history')
 def history():
@@ -190,7 +122,6 @@ def send_transaction():
     amount = request.form['amount']
     sender_address = request.form['sender_address'] 
     private_key = request.form['private_key']
-
 
     # Create the transaction
     nonce = w3.eth.getTransactionCount(sender_address)

@@ -96,7 +96,9 @@
         <input type="number" style="width:450px;margin-left:74px"  id="amount" name="amount">
         <br />
         <div class="label" for="sender_address">Sender Address:</div>
-        <input type="text" style="width:450px;margin-left:27px"  id="sender_address" name="sender_address" readonly="true", value={{sender_address}}>
+        <input type="text" style="width:450px;margin-left:27px" id="sender_address" name="sender_address", value={{sender_address}}><br><br>
+        <label for="private_key">Input Sender Private Key as Hex to Sign:</label><br>
+        <input type="hex" id="private_key" name="private_key"><br></br>
         <br />
         <input type="submit" value="Send" class="button">
     </form>

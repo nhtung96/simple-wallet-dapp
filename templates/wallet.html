@@ -114,31 +114,6 @@
     <div class="account">Ballance: {{ "%.2f" % balance }} ETH</div>
     </b>
     <button onclick= "window.location.href='{{ url_for( 'transaction' ) }}';"> Send ETH </button>
-    <br />
-    <br />
-    <b ><label class="transtitle">Transaction Information</label></b>
-
-    <!-- <h1 id="transacions">No Transctions</h1>
-    <script>
-        // ele = ""
-        transactions = document.transactions
-        // let nb_trans = transactions.length
-        // for (let i = 0; i < nb_trans; i++){
-        //     ele = ele + transactions[i]
-        // }
-        document.getElementById("transactions").innerHTML = transactions
-
-    </script> -->
-    <div class="Form">
-    {%for transaction in transactions%}
-        <ul>
-            <b>Transaction {{transaction.no}}</b>
-            <li>Transcation Hash: {{transaction._hash}}</li>
-            <li>From: {{transaction._from}}</li>
-            <li>To: {{transaction._to}}</li>
-            <li>Amount: {{transaction._amount}} ETH</li>
-        </ul>
-    {%endfor%}
-    </div>
+    <button onclick= "window.location.href='{{ url_for( 'history' ) }}';"> View Transaction History </button>
 </body>
 </html>
