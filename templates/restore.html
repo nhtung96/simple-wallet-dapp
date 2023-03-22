@@ -2,20 +2,105 @@
 <html>
 <head>
     <title>Account Login/Restoration</title>
+    <style>
+        h1.login {
+         color:blue;
+         /* margin-left: 46%; */
+         margin-top: 10%;
+         margin-bottom: 5%;
+         font-size: x-large;
+         text-align:center;
+       }
+  
+       a.Home {
+         font-size:x-large;
+         text-align:center;
+         margin-left: 47%;
+         color: blue;
+       }
+  
+  
+       div.footer {
+         /* margin-left: 45%; */
+         margin-top: 10%;
+         text-align:center;
+       }
+  
+       div.header{
+         margin-top: 10%
+       }
+  
+       input.button {
+         background-color: #4CAF50; /* Green */
+         border: none;
+         color: white;
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin-top:5%;
+         margin-left: 45%;
+
+       }
+  
+       input {
+         font-size: large;
+       }
+  
+       div.register {
+         text-align: center;
+         margin-top:1%;
+       }
+  
+       a.logout {
+         font-size:x-large;
+         text-align:center;
+         margin-left: 47%;
+         color: blue;
+         margin-top: 2%;
+        }
+  
+      div.output {
+        width: 762px;
+        /* width: fit-content; */
+  
+        background-color: gainsboro;
+        margin-left: 25%;
+        padding: 30px 30px 30px 30px;
+        font-size: x-large;
+        text-align: center;
+        align-items: center;
+      }
+
+      div.label {
+        float:left;
+        margin-left: 300px;
+      }
+      div.msg {
+      font-size: large;
+      color: red;
+      text-align: center;
+      margin-top: 2%;
+    }
+     </style>
 </head>
 <body>
-    <h1>Account Information</h1>
+    <h1 style="text-align:center;color:brown;">Simple Wallet</h1>
+    <a  class="logout" href="/account">Back</a>
+    <h1 class="login">Restore Wallet Account </h1>
     <form method="POST" action="/restore_wallet">
-        <label for="recipient_address">Private Key:</label><br>
-        <input type="text" id="private_key" name="private_key" placeholder="Input Private Key"/><br></br>
-        <p>Account Name:</p>
-        <input type='text' name="account_name"  id="account_name" placeholder="Input account name" required/>
-        <div> </div>
-        <input type="submit" value="Restore">
+        <div class="label" for="recipient_address">Private Key:</div>
+        <input type="text" id="private_key" name="private_key" placeholder="Input Private Key" style="margin-left:31px;width:700px;" >
+        <br />
+        <div class="label">Account Name:</div>
+        <input type='text' name="account_name"  id="account_name" placeholder="Input account name" required style="margin-left:10px;width:300px;" >
+        <br />
+        <input type="submit" value="Restore" class="button">
     </form>
     
     {% if error %}
-    <h2>Restore Failed: {{error}}</h2>
+    <div class="msg"><b>Restore Failed: {{error}}</b></div>
     {% endif %}
 </body>
 </html>

@@ -2,19 +2,143 @@
 <html>
 <head>
     <title>Account Information</title>
+    <style>
+        h1.login {
+         color:blue;
+         margin-left: 600px;
+         margin-top: 2%;
+         margin-bottom: 1%;
+         font-size: x-large;
+         /* text-align:center; */
+       }
+  
+       a.Home {
+         font-size:large;
+         text-align:center;
+         margin-left: 47%;
+         color: blue;
+       }
+  
+  
+       div.footer {
+         /* margin-left: 45%; */
+         margin-top: 10%;
+         text-align:center;
+       }
+  
+       div.header{
+         margin-top: 10%
+       }
+  
+       button, input.button {
+         background-color: #4CAF50; /* Green */
+         border: none;
+         color: white;
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin-top:1%;
+         margin-left: 600px;
+
+       }
+       div.Form {
+        background-color: gainsboro;
+        height: 250pt;
+        width: 700pt;
+        margin-top: 1%;
+        margin-left: 20%;
+        padding:10pt;
+        overflow-y: scroll; 
+        }
+
+       input {
+         font-size: large;
+       }
+  
+       div.register {
+         text-align: center;
+         margin-top:1%;
+       }
+  
+       a.logout {
+         font-size:x-large;
+         text-align:center;
+         margin-left: 47%;
+         color: blue;
+         margin-top: 2%;
+        }
+  
+      div.output {
+        width: 762px;
+        /* width: fit-content; */
+  
+        background-color: gainsboro;
+        margin-left: 25%;
+        padding: 30px 30px 30px 30px;
+        font-size: x-large;
+        text-align: center;
+        align-items: center;
+      }
+
+      /* div.label {
+        float:left;
+        margin-left: 300px;
+      } */
+
+      div.account{
+        margin-top: 0%;
+        font-size: large;
+        margin-left: 600px;
+      }
+
+      label.transtitle {
+        margin-left: 300px;
+        color:black;
+        font-size: xx-larger;
+        margin-top:20px
+     }
+     </style>
 </head>
 
 <body>
-    <nav>
-        <ul>
-          <li><a href="/account">Choose other account</a></li>
-          <li><a href="/">logout</a></li>
-        </ul>
+    <h1 style="text-align:center;color:brown;">Simple Wallet</h1>
+          <a class="Home" style="margin-left: 30%;;" href="/account">List Wallet Account</a>
+          <a class="Home" style="margin-left: 20%;"  href="/">Logout</a>
       </nav>
-    <h1>Account Information</h1>
-    <p>Address: {{ address }}</p>
-    <p>Ballance: {{ "%.2f" % balance }} ETH</p>
+    <h1 class="login">Account Information</h1>
+    <b>
+    <div class="account">Username: {{username}}</div>
+    <div class="account">Address: {{ address }}</div>
+    <div class="account">Ballance: {{ "%.2f" % balance }} ETH</div>
+    </b>
     <button onclick= "window.location.href='{{ url_for( 'transaction' ) }}';"> Send ETH </button>
-    <button onclick= "window.location.href='{{ url_for( 'history' ) }}';"> View Transaction History </button>
+    <br />
+    <br />
+    <b ><label class="transtitle">Transaction Information</label></b>
+
+    <!-- <h1 id="transacions">No Transctions</h1>
+    <script>
+        // ele = ""
+        transactions = document.transactions
+        // let nb_trans = transactions.length
+        // for (let i = 0; i < nb_trans; i++){
+        //     ele = ele + transactions[i]
+        // }
+        document.getElementById("transactions").innerHTML = transactions
+
+    </script> -->
+    <div class="Form">
+    {%for transaction in transactions%}
+        <ul>
+            <b>Transaction {{transaction.no}}</b>
+            <li>Transcation Hash: {{transaction._hash}}</li>
+            <li>From: {{transaction._from}}</li>
+            <li>To: {{transaction._to}}</li>
+            <li>Amount: {{transaction._amount}} ETH</li>
+        </ul>
+    {%endfor%}
+    </div>
 </body>
 </html>

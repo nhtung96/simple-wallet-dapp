@@ -8,7 +8,7 @@ class UserAccount():
 
     def insertUser(self, username, password):
         if self._check_is_exist(username=username):
-            return False, "Username is exist"
+            return False, "Username is already existed!"
         
         con = sql.connect(self.database)
         cur = con.cursor() 
@@ -40,7 +40,7 @@ class UserAccount():
         # users = cur.fetchall()
         if cur.fetchone() is None:
             con.close()
-            return False, "Account is not exist!"
+            return False, "Account does not exist!"
         else:
             self.username = username
             self.password = password
