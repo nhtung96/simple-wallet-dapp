@@ -19,7 +19,8 @@
 
       div.Button{
         text-align:center;
-        margin-top:50%;
+        margin-top:1%;
+        margin-left:2%;
       }
 
       a.logout {
@@ -31,7 +32,7 @@
       }
 
       div.header{
-        margin-top: 10%
+        margin-top: 10%;
       }
 
       h1 {
@@ -45,7 +46,7 @@
 
       div.footer {
        /* margin-left: 45%; */
-       margin-top: 3%;
+       margin-top: 1%;
        text-align:center;
      }
 
@@ -55,8 +56,8 @@
       width: 500pt;
       margin-top: 1%;
       margin-left: 30%;
-      padding:10pt
-
+      padding:10pt;
+      overflow-y: scroll; 
      }
 
      label {
@@ -66,6 +67,35 @@
       margin-left: 45%;
       margin-top:10%
      }
+
+     div.w_name {
+      width: 100pt;
+      float:left;
+     }
+
+     div.w_address {
+      width: 180pt;
+      float:left;
+     }
+
+     div.w_action {
+      width: 205pt;
+      float:left;
+     }
+
+     input.button {
+        background-color: darkgreen; /* Green */
+        border: none;
+        color: white;
+        padding: 5px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 13px;
+        margin-top:1%;
+        margin-left: 1%;
+      }
+
     </style>
   </head>
   <body>
@@ -78,13 +108,19 @@
       {%if list_wallet|length == 0%}
         <a>No wallet account</a>
       {%else%}
+        <div class="w_name">Walle Name</div>
+        <div class="w_address">Wallet Address</div>
+        <div class="w_action">Actions</div>
         {%for wallet in list_wallet%}
           <form action="/restore_by_keystore" method="post">
-            <input type= "hidden" id="account_name" name="account_name" value={{wallet.account_name}}></input>
-            <label>{{wallet.account_name}} - {{wallet.address[:4]}}...{{wallet.address[-4:]}}</label>
-            <input type="submit" name="action" class="button" value="Choose"/>
-            <input type="submit" name="action" class="button" value="Remove"/>
-            <input type="submit" name="action" class="button" value="Show Key"/>
+            <input type= "hidden" id="account_name" name="account_name" value={{wallet.account_name}}></input>              
+            <div class="w_name"> {{wallet.account_name}} </div>
+            <div class="w_address">{{wallet.address[:8]}}...{{wallet.address[-8:]}}</div>
+            <div class="w_action">
+              <input type="submit" name="action" class="button" value="Choose"/>
+              <input type="submit" name="action" class="button" value="Remove"/>
+              <input type="submit" name="action" class="button" value="Show Key"/>
+            </div>
             <br />
           </form>
         {%endfor%}

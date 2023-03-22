@@ -54,6 +54,14 @@
        margin-top:1%;
      }
 
+     div.msg {
+        font-size: large;
+        color: red;
+        text-align: center;
+        margin-top: 2%;
+        }
+
+
    </style>
 </head>
     <body>
@@ -72,23 +80,15 @@
           <a style="color:#4CAF50;" href="/login">Log In</a>
         </div>
 		</div>
-
+    
+    {%if msg%}
+    <div class="msg"><b>
+      {{msg}}
+      </b>
+  </div>
+    {%endif%}
     <div class="footer">
       <a href="/about">About</a>
     </div>
-    
-    {%if msg%}
-    <div class="msg" style="margin-left:20%">
-        {{msg}}
-      <!-- <h2>Registered Users List</h2>
-      <table style="width:100%;">
-        {%for user in users%}
-          <tr>
-            <td>{{user[0]}}</td>
-          </tr>   
-        {%endfor%}
-      </table> -->
-    </div>
-    {%endif%}
 </body>
 </html>
