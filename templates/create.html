@@ -2,22 +2,113 @@
 <html>
 <head>
     <title>Account Registration</title>
+    <style>
+        h1.login {
+         color:blue;
+         /* margin-left: 46%; */
+         margin-top: 10%;
+         margin-bottom: 5%;
+         font-size: x-large;
+         text-align:center;
+       }
+  
+       a.Home {
+         font-size:x-large;
+         text-align:center;
+         margin-left: 47%;
+         color: blue;
+       }
+  
+  
+       div.footer {
+         /* margin-left: 45%; */
+         margin-top: 10%;
+         text-align:center;
+       }
+  
+       div.header{
+         margin-top: 10%
+       }
+  
+       input.button {
+         background-color: #4CAF50; /* Green */
+         border: none;
+         color: white;
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin-top:5%;
+         margin-left: 50%;
+
+       }
+  
+       input {
+         font-size: large;
+       }
+  
+       div.register {
+         text-align: center;
+         margin-top:1%;
+       }
+  
+       a.logout {
+         font-size:x-large;
+         text-align:center;
+         margin-left: 47%;
+         color: blue;
+         margin-top: 2%;
+        }
+  
+      div.output {
+        width: 762px;
+        /* width: fit-content; */
+  
+        background-color: gainsboro;
+        margin-left: 25%;
+        padding: 30px 30px 30px 30px;
+        font-size: x-large;
+        text-align: center;
+        align-items: center;
+      }
+
+      div.label {
+        float:left;
+        margin-left: 300px;
+      }
+
+      div.msg {
+        font-size: large;
+        color: red;
+        text-align: center;
+        margin-top: 2%;
+        }
+      /* input.text{
+        margin-left: 100px;
+      } */
+     </style>
 </head>
 <body>
-    <h1>Account Information</h1>
+    <h1 style="text-align:center;color:brown;">Simple Wallet</h1>
+    <a  class="logout" href="/account">Back</a>
+    <h1 class="login">Create Wallet Account</h1>
     <form action="/create_wallet" method="post">
-        <p>Address: </p>
-        <input type='text'  readonly="True" value={{address}}/>
-        <p>Private key: (*Need to backup*)</p>
-        <input type='text'  readonly="True" value={{private_key}}/>
-        <p>Account Name:</p>
-        <input type='text' name="account_name"  id="account_name" placeholder="Input account name" required/>
-        <div></div>
+        <div class="label">Address: </div>
+        <input class="text" type='text' style="width:450px;margin-left:151px;" readonly="True" value={{address}}>
+        <br />
+        <div class="label">Private key: (*Need to backup*)</div>
+        <input class="text" type='text' style="width:700px;" readonly="True" value={{private_key}}> 
+        <br />
+        <div class="label">Account Name:</div>
+        <input class="text" type='text' style="margin-left:107px;" name="account_name"  id="account_name" placeholder="Input account name" required>
+        <br />
         <input type="submit" class="button" value="OK"/>
     </form>
     {%if msg%}
-    <div class="msg" style="margin-left:20%">
+    <div class="msg"><b>
         {{msg}}
+        </b>
     </div>
     {%endif%}
 </body>

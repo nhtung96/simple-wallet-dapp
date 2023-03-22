@@ -1,35 +1,117 @@
 <html lang="en">
 <head>
     <link href="static/main.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+      h1.login {
+       color:blue;
+       /* margin-left: 46%; */
+       margin-top: 10%;
+       font-size: x-large;
+       text-align:center;
+     }
+
+     a.Home {
+       font-size:x-large;
+       text-align:center;
+       margin-left: 47%;
+       color: blue;
+     }
+
+     form {
+       /* margin-left: 42%; */
+       text-align:center;
+     }
+
+     div.footer {
+       /* margin-left: 45%; */
+       margin-top: 10%;
+       text-align:center;
+     }
+
+     div.header{
+       margin-top: 10%
+     }
+
+     input.button {
+       background-color: #4CAF50; /* Green */
+       border: none;
+       color: white;
+       padding: 15px 32px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       font-size: 16px;
+       margin-top:1%;
+       margin-left: 1%;
+     }
+
+     input {
+       font-size: large;
+     }
+
+     div.register {
+       text-align: center;
+       margin-top:1%;
+     }
+
+     a.logout {
+       font-size:x-large;
+       text-align:center;
+       margin-left: 47%;
+       color: blue;
+       margin-top: 2%;
+      }
+
+    div.output {
+      width: 762px;
+      /* width: fit-content; */
+
+      background-color: gainsboro;
+      margin-left: 25%;
+      padding: 30px 30px 30px 30px;
+      font-size: x-large;
+      text-align: center;
+      align-items: center;
+    }
+
+    div.msg {
+      font-size: large;
+      color: red;
+    }
+   </style>
 </head>
     <body>
-      <h1 style="text-align:center;">Simple Wallet Home</h1>
-    	<div class="box">
-            <a href="/account">Back</a>
-  			<h1>Backup Wallet</h1>
+      <h1 style="text-align:center;color:brown;">Simple Wallet</h1>
+    	<!-- <div class="box"> -->
+            <a  class="logout" href="/account">Back</a>
+  			<h1 class="login">Backup Wallet</h1>
+        <b>
+        <div class="output">
+          {%if private_key%}
+              Your private key:
+              <br \>
+              {{private_key}}
+          {%else%}
+              Please input password of wallet to show private key
+          {%endif%}
+          <div></div>
+        </div>
+      </b>
   			<form action="/backup" method="post">
-    			{%if private_key%}
-                    <div>Your private key: </div>
-                    <label>{{private_key}}</label>
-                {%else%}
-                    <label>Please input user password to show private key as Hex</label>
-                {%endif%}
-                <div></div>
     			<br>
     			<input type="password" name="password" id="password" placeholder="Password" required/>
     			<br>
     			<input type="submit" class="button" value="OK"/>
   			</form>
-		</div>
+		<!-- </div> -->
+    {%if msg%}
+    <div class="msg" style="text-align: center;">
+        <b>{{msg}}</b>
+    </div>
+    {%endif%}
 
     <div class="footer">
       <a href="/about">About</a>
     </div>
-    
-    {%if msg%}
-    <div class="msg" style="margin-left:20%">
-        {{msg}}
-    </div>
-    {%endif%}
 </body>
 </html>

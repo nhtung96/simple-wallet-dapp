@@ -80,7 +80,7 @@ class Wallet():
         while (i >= 0 and (n > 0 or bal > 0)):
             block = self.wb3.eth.getBlock(i, True)
             if block and block.transactions:
-                j = 0
+                j = len(self.transactions)
                 for trans in block.transactions:
                     # trans = self.wb3.eth.get_transaction(trans_hash)
                     if self.address == trans['from'] :

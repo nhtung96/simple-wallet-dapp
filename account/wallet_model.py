@@ -17,7 +17,7 @@ class ListWalletsModel():
 
     def insertWallet(self, username, address, keystore, account_name):
         if self._check_is_exist(username=username, address=address, account_name=account_name):
-            return False, "Wallet is exist (Reason: same account_name or same address)"
+            return False, "Wallet is already existed (Reason: same account_name or same address)"
         
         con = sql.connect(self.database)
         cur = con.cursor() 
