@@ -4,6 +4,12 @@
     <title>About</title>
   </head>
   <body>
+    {%if username %}
+      <a href="/account" > Back</a>
+    {%else%}
+      <a href="/" > Back</a>
+    {%endif%}
+    
     <h1>Project: Welcome to Simple Wallet dApp</h1>
     <h2>Nhóm thực hiện</h2>
     <ul>
