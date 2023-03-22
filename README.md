@@ -13,23 +13,34 @@ This app allows to manage user accounts and blockchain addresses, handle transac
 ## Description
 
 ### Wallet
-Contains information regarding user wallet such as address, private key, balance, transaction history
+Contains information and actions regarding user wallet such as address, private key, balance, ... or create, restore wallet, sh 
+  * Account Info (List of Wallets):
+  
+    `localhost:5000/account`
+    
   * Create Wallet:
   
-    `localhost:5000/register`
+    `localhost:5000/create`
 
   * Restore Wallet:
 
-    `localhost:5000/login`
+    `localhost:5000/restore`
 
   * Wallet Information:
 
-    `localhost:5000/account`
+    `localhost:5000/wallet_info`
+   
+   * Show private key:
+
+    `localhost:5000/backup`
 
 ### Transaction
 
 ## File Contents
-  * accounts/account.py - Implements functionality to generate wallet, address & private key and other security related algorithm or function
+  * account/wallet.py - Implements functionality to generate wallet, address & private key and other security related algorithm or function
+  * account/wallet_model.py - Implements functionality related to Wallet's database such as  insert, remove wallet, check wallet is existed, ...
+  * user/user_model.py - Implements functionality related to User's database such as  insert, load user info, check user is existed, ...
+  * user/schema.sql - Define table schemas 
   * transactions/transaction.py - ???
   * app.py - Contains all the routes for app
   
