@@ -30,7 +30,7 @@ Contains information and actions regarding user wallet such as address, private 
 
     `localhost:5000/wallet_info`
    
-   * Show private key:
+  * Show private key:
 
     `localhost:5000/backup`
 
