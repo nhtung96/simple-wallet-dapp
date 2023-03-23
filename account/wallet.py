@@ -9,6 +9,7 @@ class Transaction():
         self._amount = _amount
         self.trans = trans
         self.no = no
+
     
     def to_html(self):
          
@@ -71,7 +72,7 @@ class Wallet():
         self.balance = self.wb3.fromWei(self.balance, "ether")
 
     def _get_transaction(self):
-        # Get the account balance
+        # Get the account transactions
         currentBlock = self.wb3.eth.block_number;
         n = self.wb3.eth.getTransactionCount(self.address, currentBlock);
         bal = self.balance

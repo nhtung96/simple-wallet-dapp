@@ -28,6 +28,7 @@
       </nav>
     <table>
       <tr>
+        <th>Time</th>
         <th>From</th>
         <th>To</th>
         <th>Hash</th>
@@ -35,10 +36,11 @@
       </tr>
       {%for transaction in transactions%}
         <tr>
-          <td>{{transaction._from}}</td>
-          <td>{{transaction._to}}</td>
-          <td>{{transaction._hash}}</td>
-          <td>{{transaction._amount}}</td>
+          <td>{{transaction['timestamp']}}</td>
+          <td>{{transaction['from']}}</td>
+          <td>{{transaction['to']}}</td>
+          <td>{{transaction['hash']}}</td>
+          <td>{{transaction['value']}}</td>
         </tr>
       {% endfor %}
     </table>

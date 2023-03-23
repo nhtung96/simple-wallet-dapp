@@ -5,6 +5,9 @@ from account import wallet
 from user import user_model as dbHandler
 from account import wallet_model as dbWallet
 import json
+import datetime
+import pymongo
+
 app = Flask(__name__)
 
 # Initialize web3 provider
@@ -109,7 +112,10 @@ def create_wallet():
 
 @app.route('/history')
 def history():
-    return render_template('history.html', address = main_wallet_api.address, transactions=main_wallet_api.transactions)
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = client["simple-dapp-wallet"]
+    transactions = db.transactions.find({'$or': [ { 'from': main_wallet_api.address }, { 'to': main_wallet_api.address } ] } )
+    return render_template('history.html', address = main_wallet_api.address, transactions=transactions)
 
 @app.route('/transaction')
 def transaction():
@@ -122,6 +128,7 @@ def send_transaction():
     amount = request.form['amount']
     sender_address = request.form['sender_address'] 
     private_key = main_wallet_api.private_key
+
 
     # Create the transaction
     nonce = w3.eth.getTransactionCount(sender_address)
@@ -139,6 +146,19 @@ def send_transaction():
 
     # Send transaction
     tx_hash = w3.eth.sendRawTransaction(signed_txn.rawTransaction)
+
+
+    # Store transaction history to database
+    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = client["simple-dapp-wallet"]
+    db.transactions.insert_one({
+        "hash": tx_hash.hex(),
+        "from": sender_address,
+        "to": recipient_address,
+        "value": amount,
+        "timestamp": now,
+    })
 
     return render_template('transaction.html', recipient_address=recipient_address, amount=amount, hash = tx_hash, \
                                                                                 sender_address=sender_address)
