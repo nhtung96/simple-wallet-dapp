@@ -35,13 +35,21 @@ Contains information and actions regarding user wallet such as address, private 
     `localhost:5000/backup`
 
 ### Transaction
+Handles transactions 
+  * Handle transactions:
 
+    `localhost:5000/transaction`
+  
+  * View transactions history:
+
+    `localhost:5000/history`
+    
 ## File Contents
   * account/wallet.py - Implements functionality to generate wallet, address & private key and other security related algorithm or function
   * account/wallet_model.py - Implements functionality related to Wallet's database such as  insert, remove wallet, check wallet is existed, ...
   * user/user_model.py - Implements functionality related to User's database such as  insert, load user info, check user is existed, ...
   * user/schema.sql - Define table schemas 
-  * transactions/transaction.py - ???
+  * templates/ - Contains HTML files 
   * app.py - Contains all the routes for app
   
 ## Demo
