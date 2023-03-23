@@ -121,7 +121,7 @@ def send_transaction():
     recipient_address = request.form['recipient_address']
     amount = request.form['amount']
     sender_address = request.form['sender_address'] 
-    private_key = request.form['private_key']
+    private_key = main_wallet_api.private_key
 
     # Create the transaction
     nonce = w3.eth.getTransactionCount(sender_address)
