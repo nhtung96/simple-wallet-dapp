@@ -1,0 +1,28 @@
+
+
+Username: 21c11014
+Password: 123456
+
+Wallet Name: wallet1
+Address: 0x0e53A8531facCB5b3bd5c43a46377a9776C5a700
+Ballance: 0.00 ETH
+Your private key:
+0xf80b4469544811dd45ca7a12aea99ae3ccbecac87555c455e6f92b28600787ca
+
+Wallet Name: wallet2
+Address: 0xEBBDBf21464AC0dcd80a119CA5bb357d19F3aeC3
+Ballance: 0.00 ETH
+Your private key:
+0x83e28886ea33c2c84993589b652f3bbdb9b0dc8c2f5615c7a102b45c967ae579
+
+Wallet Name: wallet3
+Address: 0x68Df40dCBcDD2e6374a2Bc5DC39393b3Ed475db8
+Ballance: 80.00 ETH
+Your private key:
+0x3acde026521ec9182511f21917fe6f13660dcf2e9132692ca9be6b75730c3a15
+
+Wallet Name:  wallet4
+Address: 0x811dE0A6F30Fd12255a96CB259c5b11dFF7f0104
+Ballance: 45.00 ETH
+Your private key:
+0x4c2b67a600399633490a0f5ce4b8198df86804f13bdf29882af6886923a37afa
