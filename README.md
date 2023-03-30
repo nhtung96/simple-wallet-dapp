@@ -13,7 +13,7 @@ This app allows to manage user accounts and blockchain addresses, handle transac
 ## Description
 
 ### Account
-  * Creae Account:
+  * Create Account:
     `localhost:5000/register`
   * Log in:
     `localhost:5000/login`
