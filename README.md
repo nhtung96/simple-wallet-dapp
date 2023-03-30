@@ -2,7 +2,7 @@
 This app allows to manage user accounts and blockchain addresses, handle transactions as well as tracking tracsaction history in Python & Flask & Web3 with Ganache used to run tests and inspect state while controlling how the chain operates.
 
 ## Getting Started
-1. Download Ganache (https://trufflesuite.com/ganache/) and start Ganache workplace (https://trufflesuite.com/docs/ganache/quickstart/).
+1. Download Ganache (https://trufflesuite.com/ganache/) and start Ganache workplace (https://trufflesuite.com/docs/ganache/quickstart/). `./ganache-2.7.0-linux-x86_64.AppImage -p 7545`
 2. Clone the directory, then `cd simple-wallet-dapp`
 3. Install packages:
   `pip install -r requirements.txt`
@@ -12,6 +12,11 @@ This app allows to manage user accounts and blockchain addresses, handle transac
   
 ## Description
 
+### Account
+  * Creae Account:
+    `localhost:5000/register`
+  * Log in:
+    `localhost:5000/login`
 ### Wallet
 Contains information and actions regarding user wallet such as address, private key, balance, ... or create, restore wallet, sh 
   * Account Info (List of Wallets):
@@ -32,7 +37,7 @@ Contains information and actions regarding user wallet such as address, private 
    
   * Show private key:
 
-    `localhost:5000/backup`
+    `localhost:5000/restore_by_keystore`
 
 ### Transaction
 Handles transactions 
