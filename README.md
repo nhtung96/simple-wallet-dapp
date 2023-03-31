@@ -58,4 +58,4 @@ Handles transactions
   * app.py - Contains all the routes for app
   
 ## Demo
- * Video Link: 
+ * Video Link: https://youtu.be/1fgN0okgGrE
