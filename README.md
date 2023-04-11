@@ -3,10 +3,11 @@ This app allows to manage user accounts and blockchain addresses, handle transac
 
 ## Getting Started
 1. Download Ganache (https://trufflesuite.com/ganache/) and start Ganache workplace (https://trufflesuite.com/docs/ganache/quickstart/). `./ganache-2.7.0-linux-x86_64.AppImage -p 7545`
-2. Clone the directory, then `cd simple-wallet-dapp`
-3. Install packages:
+2. Install MongoDB server (UI compass is an optional): https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/
+3. Clone the directory, then `cd simple-wallet-dapp`
+4. Install packages:
   `pip install -r requirements.txt`
- 4. Run the following command:
+5. Run the following command:
   `python app.py`
   then you will see app is running on http://127.0.0.1:5000 or http://localhost:5000
   
